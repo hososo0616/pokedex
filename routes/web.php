@@ -5,6 +5,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\PokemonController;
+use App\Http\Controllers\ItemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,9 @@ Route::get('/', function () {
 });
 
 Route::resource('pokedex', PokemonController::class)
+->middleware(['auth', 'verified']);
+
+Route::resource('pokeitem', ItemController::class)
 ->middleware(['auth', 'verified']);
 
 Route::get('/dashboard', function () {

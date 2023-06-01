@@ -35,6 +35,9 @@ const showingNavigationDropdown = ref(false);
                                 <NavLink :href="route('pokedex.index')" :active="route().current('pokedex.index')">
                                     ポケモン図鑑
                                 </NavLink>
+                                <NavLink :href="route('pokeitem.index')" :active="route().current('pokeitem.index')">
+                                    ポケモンのどうぐ
+                                </NavLink>
                             </div>
                         </div>
 
@@ -120,6 +123,9 @@ const showingNavigationDropdown = ref(false);
                         </ResponsiveNavLink>
                         <ResponsiveNavLink :href="route('pokedex.index')" :active="route().current('pokedex.index')">
                             ポケモン図鑑
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink :href="route('pokeitem.index')" :active="route().current('pokeitem.index')">
+                            ポケモンのどうぐ
                         </ResponsiveNavLink>
                     </div>
 
