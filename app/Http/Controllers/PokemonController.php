@@ -62,9 +62,16 @@ class PokemonController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Pokemon $pokemon)
+    public function show($pokedex)
     {
-        //
+        $pokemon = Pokemon::findOrFail($pokedex);
+
+        // 確認用
+        // dd($pokemon);
+
+        return Inertia::render('Pokedex/Show', [
+            'pokemon' => $pokemon,
+        ]);
     }
 
     /**
