@@ -42,16 +42,14 @@ const toggleChange = () => { isShow.value = !isShow.value }
         </header>
         <main class="modal__content" id="modal-1-content">
           <div class="grid sm: grid-cols-1 md:grid-cols-2 gap-4">
-            <Link as="button" :href="route('pokedex.index', {'id': 1})" class="modal__btn modal__btn-search w-60 h-20">図鑑番号　１～</Link>
-            <!-- <button type="button" class="modal__btn modal__btn-search w-60 h-20" onclick="location.href='{{ route('pokedex.i1ndex') }}'">図鑑番号　１～</button> -->
-            <button type="button" class="modal__btn modal__btn-search w-60 h-20" @click="toggleChange">図鑑番号　～１００８</button>
-            <button type="button" class="modal__btn modal__btn-search w-60 h-20" @click="toggleChange">名前　あ～</button>
-            <button type="button" class="modal__btn modal__btn-search w-60 h-20" @click="toggleChange">名前　～ん</button>
-            <button type="button" class="modal__btn modal__btn-search w-60 h-20" @click="toggleChange">高さ　高</button>
-            <button type="button" class="modal__btn modal__btn-search w-60 h-20" @click="toggleChange">高さ　低</button>
-            <button type="button" class="modal__btn modal__btn-search w-60 h-20" @click="toggleChange">重さ　高</button>
-            <button type="button" class="modal__btn modal__btn-search w-60 h-20" @click="toggleChange">重さ　低</button>
-
+            <Link as="button" :href="route('pokedex.index', {'number': 'asc'})" class="modal__btn modal__btn-search w-60 h-20">図鑑番号　１～</Link>
+            <Link as="button" :href="route('pokedex.index', {'number': 'desc'})" class="modal__btn modal__btn-search w-60 h-20">図鑑番号　～１００８</Link>
+            <Link as="button" :href="route('pokedex.index', {'name': 'asc'})" class="modal__btn modal__btn-search w-60 h-20">名前　あ～</Link>
+            <Link as="button" :href="route('pokedex.index', {'name': 'desc'})" class="modal__btn modal__btn-search w-60 h-20">名前　～ん</Link>
+            <Link as="button" :href="route('pokedex.index', {'height': 'desc'})" class="modal__btn modal__btn-search w-60 h-20">高さ　高</Link>
+            <Link as="button" :href="route('pokedex.index', {'height': 'asc'})" class="modal__btn modal__btn-search w-60 h-20">高さ　低</Link>
+            <Link as="button" :href="route('pokedex.index', {'weight': 'desc'})" class="modal__btn modal__btn-search w-60 h-20">重さ　高</Link>
+            <Link as="button" :href="route('pokedex.index', {'weight': 'asc'})" class="modal__btn modal__btn-search w-60 h-20">重さ　低</Link>
         </div>
         </main>
         <!-- <footer class="modal__footer ">
