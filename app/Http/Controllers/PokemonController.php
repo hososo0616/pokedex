@@ -11,8 +11,12 @@ class PokemonController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
+        if ($request->id) {
+            dd($request);
+        }
+
         $data = Pokemon::select(
             'p_id',
             'jp_name',
