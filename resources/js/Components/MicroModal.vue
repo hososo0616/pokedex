@@ -9,27 +9,6 @@ const isShow = ref(false);
 
 const toggleChange = () => { isShow.value = !isShow.value }
 
-// const router = useRouter()
-
-// const moveNextScreen = () => {
-//     const url = "pokedex";
-//     const obj = {
-//         params: {
-//             order: 'desc',
-//         },
-//     };
-//     axios
-//         .get(url, obj)
-//         .then(() => {
-//             toggleChange();
-//         })
-//         .catch((err) => {
-//             console.log(err);
-//         });
-// }
-
-
-
 </script>
 <template>
   <div class="modal" id="modal-1" aria-hidden="true" v-show="isShow">
