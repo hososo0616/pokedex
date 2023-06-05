@@ -1,30 +1,93 @@
 <script setup>
 import { ref } from 'vue';
+import { Link } from "@inertiajs/vue3";
 const isShow = ref(false);
 
 const toggleChange = () => { isShow.value = !isShow.value }
 </script>
 <template>
-    <div class="modal z-50" id="modal-1" aria-hidden="true" v-show="isShow">
-        <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+    <div class="modal" id="modal-1" aria-hidden="true" v-show="isShow">
+        <div class="modal__overlay z-10" tabindex="-1" data-micromodal-close>
             <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
                 <header class="modal__header">
                     <h2 class="modal__title" id="modal-1-title">
-                                                        Micromodal
-                                                      </h2>
+                                     条件検索</h2>
                     <button type="button" class="modal__close" aria-label="Close modal" data-micromodal-close @click="toggleChange"></button>
                 </header>
                 <main class="modal__content" id="modal-1-content">
-                    <p>
-                                                        Try hitting the <code>tab</code> key and notice how the focus stays within the modal itself. Also, <code>esc</code> to close modal.
-                                                      </p>
+                    <div class="grid sm: grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="col-span-2">
+                            <div class="md:w-full"> フリーワード検索 </div>
+                            <div>
+                                <input type="text" class="md:w-full" placeholder="名前で探す">
+                            </div>
+                        </div>
+                        <div class="col-span-2">
+                            <div class="md:w-full"> タイプ </div>
+                            <div class="radio-tile-group flex justify-around">
+                                <div class="input-container">
+                                    <input id="walk" class="radio-button" type="radio" name="radio" />
+                                    <div class="radio-tile">
+                                        <div class="icon walk-icon">
+                                            <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M13.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM9.8 8.9L7 23h2.1l1.8-8 2.1 2v6h2v-7.5l-2.1-2 .6-3C14.8 12 16.8 13 19 13v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1L6 8.3V13h2V9.6l1.8-.7" />
+                                            </svg>
+                                        </div>
+                                        <label for="walk" class="radio-tile-label">Walk</label>
+                                    </div>
+                                </div>
+                                <div class="input-container">
+                                    <input id="bike" class="radio-button" type="radio" name="radio" />
+                                    <div class="radio-tile">
+                                        <div class="icon bike-icon">
+                                            <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M15.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM5 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5zm5.8-10l2.4-2.4.8.8c1.3 1.3 3 2.1 5.1 2.1V9c-1.5 0-2.7-.6-3.6-1.5l-1.9-1.9c-.5-.4-1-.6-1.6-.6s-1.1.2-1.4.6L7.8 8.4c-.4.4-.6.9-.6 1.4 0 .6.2 1.1.6 1.4L11 14v5h2v-6.2l-2.2-2.3zM19 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5z" />
+                                            </svg>
+                                        </div>
+                                        <label for="bike" class="radio-tile-label">Bike</label>
+                                    </div>
+                                </div>
+                                <div class="input-container">
+                                    <input id="drive" class="radio-button" type="radio" name="radio" />
+                                    <div class="radio-tile">
+                                        <div class="icon car-icon">
+                                            <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z" />
+                                                <path d="M0 0h24v24H0z" fill="none" />
+                                            </svg>
+                                        </div>
+                                        <label for="drive" class="radio-tile-label">Drive</label>
+                                    </div>
+                                </div>
+                                <div class="input-container">
+                                    <input id="fly" class="radio-button" type="radio" name="radio" />
+                                    <div class="radio-tile">
+                                        <div class="icon fly-icon">
+                                            <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M10.18 9" />
+                                                <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" />
+                                                <path d="M0 0h24v24H0z" fill="none" />
+                                            </svg>
+                                        </div>
+                                        <label for="fly" class="radio-tile-label">Fly</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-span-2">
+                            <div class="md:w-full"> とくせい </div>
+                            <div>
+                                <input type="text" class="md:w-full" placeholder="名前で探す">
+                            </div>
+                        </div>
+                    </div>
                 </main>
                 <footer class="modal__footer">
-                    <button type="button" class="modal__btn modal__btn-primary" @click="toggleChange">Continue</button>
-                    <button type="button" class="modal__btn" data-micromodal-close aria-label="Close this dialog window" @click="toggleChange">Close</button>
                 </footer>
             </div>
         </div>
     </div>
-    <button type="button" data-micromodal-trigger="modal-1"  @click="toggleChange"><img src="storage/mushiicon.jpeg" alt="検索" class="w-full"></button>
+    <button type="button" data-micromodal-trigger="modal-1" @click="toggleChange"><img src="storage/mushiicon.jpeg" alt="検索" class="w-full"></button>
 </template>
