@@ -1,0 +1,98 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+filedset.h1 {
+    margin: 0;
+    line-height: 1.2;
+}
+
+filedset.p {
+    margin: 0 0 1.6rem;
+    padding-bottom: 0.2rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.radio-inline__input {
+    clip: rect(1px, 1px, 1px, 1px);
+    position: absolute !important;
+}
+
+.radio-inline__label {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin-right: 18px;
+    border-radius: 3px;
+    transition: all 0.2s;
+}
+
+.type1 {
+    background: #a9a9a9;
+}
+.type2 {
+    background: #ff7f50;
+}
+.type3 {
+    background: #1e90ff;
+}
+.type4 {
+    background: #ffff00;
+}
+.type5 {
+    background: #3cb371;
+}
+.type6 {
+    background: #87ceeb;
+}
+.type7 {
+    background: #cd5c5c;
+}
+.type8 {
+    background: #4b0082;
+}
+.type9 {
+    background: #cd853f;
+}
+.type10 {
+    background: #1e90ff;
+}
+.type11 {
+    background: #da70d6;
+}
+.type12 {
+    background: #7fff00;
+}
+.type13 {
+    background: #b8860b;
+}
+.type14 {
+    background: #6a5acd;
+}
+.type15 {
+    background: #ff8c00;
+}
+.type16 {
+    background: #708090;
+}
+.type17 {
+    background: #a9a9a9;
+}
+.type18 {
+    background: #c71585;
+}
+
+/* .radio-inline__input:focus + .radio-inline__label {
+
+} */
+
+.radio-inline__input:checked + .radio-inline__label {
+    outline-color: #4d90fe;
+    outline-offset: 5px;
+    outline-style: auto;
+    outline-width: 5px;
+}

@@ -1,91 +1,123 @@
 <script setup>
 import { ref } from 'vue';
 import { Link } from "@inertiajs/vue3";
-const isShow = ref(false);
 
+const value = ref(null);
+const checks = ref([]);
+
+const isShow = ref(false);
 const toggleChange = () => { isShow.value = !isShow.value }
 </script>
 <template>
     <div class="modal" id="modal-1" aria-hidden="true" v-show="isShow">
         <div class="modal__overlay z-10" tabindex="-1" data-micromodal-close>
             <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
-                <header class="modal__header">
-                    <h2 class="modal__title" id="modal-1-title">
-                                     条件検索</h2>
-                    <button type="button" class="modal__close" aria-label="Close modal" data-micromodal-close @click="toggleChange"></button>
-                </header>
-                <main class="modal__content" id="modal-1-content">
-                    <div class="grid sm: grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="col-span-2">
-                            <div class="md:w-full"> フリーワード検索 </div>
-                            <div>
-                                <input type="text" class="md:w-full" placeholder="名前で探す">
-                            </div>
-                        </div>
-                        <div class="col-span-2">
-                            <div class="md:w-full"> タイプ </div>
-                            <div class="radio-tile-group flex justify-around">
-                                <div class="input-container">
-                                    <input id="walk" class="radio-button" type="radio" name="radio" />
-                                    <div class="radio-tile">
-                                        <div class="icon walk-icon">
-                                            <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M0 0h24v24H0z" fill="none" />
-                                                <path d="M13.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM9.8 8.9L7 23h2.1l1.8-8 2.1 2v6h2v-7.5l-2.1-2 .6-3C14.8 12 16.8 13 19 13v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1L6 8.3V13h2V9.6l1.8-.7" />
-                                            </svg>
-                                        </div>
-                                        <label for="walk" class="radio-tile-label">Walk</label>
-                                    </div>
-                                </div>
-                                <div class="input-container">
-                                    <input id="bike" class="radio-button" type="radio" name="radio" />
-                                    <div class="radio-tile">
-                                        <div class="icon bike-icon">
-                                            <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M0 0h24v24H0z" fill="none" />
-                                                <path d="M15.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM5 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5zm5.8-10l2.4-2.4.8.8c1.3 1.3 3 2.1 5.1 2.1V9c-1.5 0-2.7-.6-3.6-1.5l-1.9-1.9c-.5-.4-1-.6-1.6-.6s-1.1.2-1.4.6L7.8 8.4c-.4.4-.6.9-.6 1.4 0 .6.2 1.1.6 1.4L11 14v5h2v-6.2l-2.2-2.3zM19 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5z" />
-                                            </svg>
-                                        </div>
-                                        <label for="bike" class="radio-tile-label">Bike</label>
-                                    </div>
-                                </div>
-                                <div class="input-container">
-                                    <input id="drive" class="radio-button" type="radio" name="radio" />
-                                    <div class="radio-tile">
-                                        <div class="icon car-icon">
-                                            <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z" />
-                                                <path d="M0 0h24v24H0z" fill="none" />
-                                            </svg>
-                                        </div>
-                                        <label for="drive" class="radio-tile-label">Drive</label>
-                                    </div>
-                                </div>
-                                <div class="input-container">
-                                    <input id="fly" class="radio-button" type="radio" name="radio" />
-                                    <div class="radio-tile">
-                                        <div class="icon fly-icon">
-                                            <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M10.18 9" />
-                                                <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" />
-                                                <path d="M0 0h24v24H0z" fill="none" />
-                                            </svg>
-                                        </div>
-                                        <label for="fly" class="radio-tile-label">Fly</label>
-                                    </div>
+                <form action="" method="GET">
+                    <header class="modal__header">
+                        <h2 class="modal__title" id="modal-1-title">
+                                                   条件検索</h2>
+                        <button type="button" class="modal__close" aria-label="Close modal" data-micromodal-close @click="toggleChange"></button>
+                    </header>
+                    <main class="modal__content" id="modal-1-content">
+                        <div class="grid sm: grid-cols-1 md:grid-cols-2 gap-8">
+                            <div class="col-span-2">
+                                <div class="md:w-full"> フリーワード検索 </div>
+                                <div>
+                                    <input type="search" class="md:w-full" placeholder="名前で探す" name="search" v-model="value">
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-span-2">
+                            <p>{{ value }}</p>
+                            <div class="col-span-2">
+                                <div class="md:w-full mb-4"> タイプ </div>
+                                <fieldset class="grid sm: grid-cols-1 md:grid-cols-6 gap-x-2 gap-y-5">
+                                    <div>
+                                        <input id="item-1" class="radio-inline__input" type="checkbox" name="accessible-radio" value="item-1" v-model="checks" />
+                                        <label class="radio-inline__label type1" for="item-1"> ノーマル </label>
+                                    </div>
+                                    <div>
+                                        <input id="item-2" class="radio-inline__input" type="checkbox" name="accessible-radio" value="item-2" v-model="checks" />
+                                        <label class="radio-inline__label type2" for="item-2"> ほのお </label>
+                                    </div>
+                                    <div>
+                                        <input id="item-3" class="radio-inline__input" type="checkbox" name="accessible-radio" value="item-3" v-model="checks" />
+                                        <label class="radio-inline__label type3" for="item-3"> みず </label>
+                                    </div>
+                                    <div>
+                                        <input id="item-4" class="radio-inline__input" type="checkbox" name="accessible-radio" value="item-4" v-model="checks" />
+                                        <label class="radio-inline__label type4" for="item-4"> でんき </label>
+                                    </div>
+                                    <div>
+                                        <input id="item-5" class="radio-inline__input" type="checkbox" name="accessible-radio" value="item-5" v-model="checks" />
+                                        <label class="radio-inline__label type5" for="item-5"> くさ </label>
+                                    </div>
+                                    <div>
+                                        <input id="item-6" class="radio-inline__input" type="checkbox" name="accessible-radio" value="item-6" v-model="checks" />
+                                        <label class="radio-inline__label type6" for="item-6"> こおり </label>
+                                    </div>
+                                    <div>
+                                        <input id="item-7" class="radio-inline__input" type="checkbox" name="accessible-radio" value="item-7" v-model="checks" />
+                                        <label class="radio-inline__label type7" for="item-7"> かくとう </label>
+                                    </div>
+                                    <div>
+                                        <input id="item-8" class="radio-inline__input" type="checkbox" name="accessible-radio" value="item-8" v-model="checks" />
+                                        <label class="radio-inline__label type8" for="item-8"> どく </label>
+                                    </div>
+                                    <div>
+                                        <input id="item-9" class="radio-inline__input" type="checkbox" name="accessible-radio" value="item-9" v-model="checks" />
+                                        <label class="radio-inline__label type9" for="item-9"> じめん </label>
+                                    </div>
+                                    <div>
+                                        <input id="item-10" class="radio-inline__input" type="checkbox" name="accessible-radio" value="item-10" v-model="checks" />
+                                        <label class="radio-inline__label type10" for="item-10"> ひこう </label>
+                                    </div>
+                                    <div>
+                                        <input id="item-11" class="radio-inline__input" type="checkbox" name="accessible-radio" value="item-11" v-model="checks" />
+                                        <label class="radio-inline__label type11" for="item-11"> エスパー </label>
+                                    </div>
+                                    <div>
+                                        <input id="item-12" class="radio-inline__input" type="checkbox" name="accessible-radio" value="item-12" v-model="checks" />
+                                        <label class="radio-inline__label type12" for="item-12"> むし </label>
+                                    </div>
+                                    <div>
+                                        <input id="item-13" class="radio-inline__input" type="checkbox" name="accessible-radio" value="item-13" v-model="checks" />
+                                        <label class="radio-inline__label type13" for="item-13"> いわ </label>
+                                    </div>
+                                    <div>
+                                        <input id="item-14" class="radio-inline__input" type="checkbox" name="accessible-radio" value="item-14" v-model="checks" />
+                                        <label class="radio-inline__label type14" for="item-14"> ゴースト </label>
+                                    </div>
+                                    <div>
+                                        <input id="item-15" class="radio-inline__input" type="checkbox" name="accessible-radio" value="item-15" v-model="checks" />
+                                        <label class="radio-inline__label type15" for="item-15"> ドラゴン </label>
+                                    </div>
+                                    <div>
+                                        <input id="item-16" class="radio-inline__input" type="checkbox" name="accessible-radio" value="item-16" v-model="checks" />
+                                        <label class="radio-inline__label type16" for="item-16"> あく </label>
+                                    </div>
+                                    <div>
+                                        <input id="item-17" class="radio-inline__input" type="checkbox" name="accessible-radio" value="item-17" v-model="checks" />
+                                        <label class="radio-inline__label type17" for="item-17"> はがね </label>
+                                    </div>
+                                    <div>
+                                        <input id="item-18" class="radio-inline__input" type="checkbox" name="accessible-radio" value="item-18" v-model="checks" />
+                                        <label class="radio-inline__label type18" for="item-18"> フェアリー </label>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            <p>{{ checks }}</p>
+                            <!-- 特性の一覧が取得できていないので保留 -->
+                            <!-- <div class="col-span-2">
                             <div class="md:w-full"> とくせい </div>
                             <div>
                                 <input type="text" class="md:w-full" placeholder="名前で探す">
                             </div>
+                        </div> -->
                         </div>
-                    </div>
-                </main>
-                <footer class="modal__footer">
-                </footer>
+                    </main>
+                    <footer class="modal__footer flex justify-center">
+                        <Link as="button" :href="route('pokedex.index', { 'value': value, 'type': checks })" class="modal__btn modal__btn-search w-60 h-20">検索する</Link>
+                    </footer>
+                </form>
             </div>
         </div>
     </div>
