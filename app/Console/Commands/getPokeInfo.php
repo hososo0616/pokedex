@@ -28,7 +28,7 @@ class getPokeInfo extends Command
     {
         try {
             // $pokemon_number_array = range(1, PokemonConst::MAX_POKEMON_NUMBER);
-            $pokemon_number_array = range(1, 20);
+            $pokemon_number_array = range(1, 50);
 
             foreach ($pokemon_number_array as $no) {
                 // すでに取得済みの場合はスキップ
