@@ -31,76 +31,76 @@ const toggleChange = () => { isShow.value = !isShow.value }
                                 <div class="md:w-full mb-4"> タイプ </div>
                                 <fieldset class="grid sm: grid-cols-1 md:grid-cols-6 gap-x-2 gap-y-5">
                                     <div>
-                                        <input id="item-1" class="radio-inline__input" type="checkbox" name="accessible-radio" value="item-1" v-model="checks" />
-                                        <label class="radio-inline__label type1" for="item-1"> ノーマル </label>
+                                        <input id="normal" class="radio-inline__input" type="checkbox" name="accessible-radio" value="normal" v-model="checks" />
+                                        <label class="radio-inline__label type1" for="normal"> ノーマル </label>
                                     </div>
                                     <div>
-                                        <input id="item-2" class="radio-inline__input" type="checkbox" name="accessible-radio" value="item-2" v-model="checks" />
-                                        <label class="radio-inline__label type2" for="item-2"> ほのお </label>
+                                        <input id="fire" class="radio-inline__input" type="checkbox" name="accessible-radio" value="fire" v-model="checks" />
+                                        <label class="radio-inline__label type2" for="fire"> ほのお </label>
                                     </div>
                                     <div>
-                                        <input id="item-3" class="radio-inline__input" type="checkbox" name="accessible-radio" value="item-3" v-model="checks" />
-                                        <label class="radio-inline__label type3" for="item-3"> みず </label>
+                                        <input id="water" class="radio-inline__input" type="checkbox" name="accessible-radio" value="water" v-model="checks" />
+                                        <label class="radio-inline__label type3" for="water"> みず </label>
                                     </div>
                                     <div>
-                                        <input id="item-4" class="radio-inline__input" type="checkbox" name="accessible-radio" value="item-4" v-model="checks" />
-                                        <label class="radio-inline__label type4" for="item-4"> でんき </label>
+                                        <input id="electronic" class="radio-inline__input" type="checkbox" name="accessible-radio" value="electronic" v-model="checks" />
+                                        <label class="radio-inline__label type4" for="electronic"> でんき </label>
                                     </div>
                                     <div>
-                                        <input id="item-5" class="radio-inline__input" type="checkbox" name="accessible-radio" value="item-5" v-model="checks" />
-                                        <label class="radio-inline__label type5" for="item-5"> くさ </label>
+                                        <input id="grass" class="radio-inline__input" type="checkbox" name="accessible-radio" value="grass" v-model="checks" />
+                                        <label class="radio-inline__label type5" for="grass"> くさ </label>
                                     </div>
                                     <div>
-                                        <input id="item-6" class="radio-inline__input" type="checkbox" name="accessible-radio" value="item-6" v-model="checks" />
-                                        <label class="radio-inline__label type6" for="item-6"> こおり </label>
+                                        <input id="ice" class="radio-inline__input" type="checkbox" name="accessible-radio" value="ice" v-model="checks" />
+                                        <label class="radio-inline__label type6" for="ice"> こおり </label>
                                     </div>
                                     <div>
-                                        <input id="item-7" class="radio-inline__input" type="checkbox" name="accessible-radio" value="item-7" v-model="checks" />
-                                        <label class="radio-inline__label type7" for="item-7"> かくとう </label>
+                                        <input id="fight" class="radio-inline__input" type="checkbox" name="accessible-radio" value="fight" v-model="checks" />
+                                        <label class="radio-inline__label type7" for="fight"> かくとう </label>
                                     </div>
                                     <div>
-                                        <input id="item-8" class="radio-inline__input" type="checkbox" name="accessible-radio" value="item-8" v-model="checks" />
-                                        <label class="radio-inline__label type8" for="item-8"> どく </label>
+                                        <input id="asid" class="radio-inline__input" type="checkbox" name="accessible-radio" value="asid" v-model="checks" />
+                                        <label class="radio-inline__label type8" for="asid"> どく </label>
                                     </div>
                                     <div>
-                                        <input id="item-9" class="radio-inline__input" type="checkbox" name="accessible-radio" value="item-9" v-model="checks" />
-                                        <label class="radio-inline__label type9" for="item-9"> じめん </label>
+                                        <input id="ground" class="radio-inline__input" type="checkbox" name="accessible-radio" value="ground" v-model="checks" />
+                                        <label class="radio-inline__label type9" for="ground"> じめん </label>
                                     </div>
                                     <div>
-                                        <input id="item-10" class="radio-inline__input" type="checkbox" name="accessible-radio" value="item-10" v-model="checks" />
-                                        <label class="radio-inline__label type10" for="item-10"> ひこう </label>
+                                        <input id="fly" class="radio-inline__input" type="checkbox" name="accessible-radio" value="fly" v-model="checks" />
+                                        <label class="radio-inline__label type10" for="fly"> ひこう </label>
                                     </div>
                                     <div>
-                                        <input id="item-11" class="radio-inline__input" type="checkbox" name="accessible-radio" value="item-11" v-model="checks" />
-                                        <label class="radio-inline__label type11" for="item-11"> エスパー </label>
+                                        <input id="esper" class="radio-inline__input" type="checkbox" name="accessible-radio" value="esper" v-model="checks" />
+                                        <label class="radio-inline__label type11" for="esper"> エスパー </label>
                                     </div>
                                     <div>
-                                        <input id="item-12" class="radio-inline__input" type="checkbox" name="accessible-radio" value="item-12" v-model="checks" />
-                                        <label class="radio-inline__label type12" for="item-12"> むし </label>
+                                        <input id="beetle" class="radio-inline__input" type="checkbox" name="accessible-radio" value="beetle" v-model="checks" />
+                                        <label class="radio-inline__label type12" for="beetle"> むし </label>
                                     </div>
                                     <div>
-                                        <input id="item-13" class="radio-inline__input" type="checkbox" name="accessible-radio" value="item-13" v-model="checks" />
-                                        <label class="radio-inline__label type13" for="item-13"> いわ </label>
+                                        <input id="rock" class="radio-inline__input" type="checkbox" name="accessible-radio" value="rock" v-model="checks" />
+                                        <label class="radio-inline__label type13" for="rock"> いわ </label>
                                     </div>
                                     <div>
-                                        <input id="item-14" class="radio-inline__input" type="checkbox" name="accessible-radio" value="item-14" v-model="checks" />
-                                        <label class="radio-inline__label type14" for="item-14"> ゴースト </label>
+                                        <input id="ghrost" class="radio-inline__input" type="checkbox" name="accessible-radio" value="ghrost" v-model="checks" />
+                                        <label class="radio-inline__label type14" for="ghrost"> ゴースト </label>
                                     </div>
                                     <div>
-                                        <input id="item-15" class="radio-inline__input" type="checkbox" name="accessible-radio" value="item-15" v-model="checks" />
-                                        <label class="radio-inline__label type15" for="item-15"> ドラゴン </label>
+                                        <input id="dragon" class="radio-inline__input" type="checkbox" name="accessible-radio" value="dragon" v-model="checks" />
+                                        <label class="radio-inline__label type15" for="dragon"> ドラゴン </label>
                                     </div>
                                     <div>
-                                        <input id="item-16" class="radio-inline__input" type="checkbox" name="accessible-radio" value="item-16" v-model="checks" />
-                                        <label class="radio-inline__label type16" for="item-16"> あく </label>
+                                        <input id="aku" class="radio-inline__input" type="checkbox" name="accessible-radio" value="aku" v-model="checks" />
+                                        <label class="radio-inline__label type16" for="aku"> あく </label>
                                     </div>
                                     <div>
-                                        <input id="item-17" class="radio-inline__input" type="checkbox" name="accessible-radio" value="item-17" v-model="checks" />
-                                        <label class="radio-inline__label type17" for="item-17"> はがね </label>
+                                        <input id="iron" class="radio-inline__input" type="checkbox" name="accessible-radio" value="iron" v-model="checks" />
+                                        <label class="radio-inline__label type17" for="iron"> はがね </label>
                                     </div>
                                     <div>
-                                        <input id="item-18" class="radio-inline__input" type="checkbox" name="accessible-radio" value="item-18" v-model="checks" />
-                                        <label class="radio-inline__label type18" for="item-18"> フェアリー </label>
+                                        <input id="fairy" class="radio-inline__input" type="checkbox" name="accessible-radio" value="fairy" v-model="checks" />
+                                        <label class="radio-inline__label type18" for="fairy"> フェアリー </label>
                                     </div>
                                 </fieldset>
                             </div>
@@ -115,7 +115,7 @@ const toggleChange = () => { isShow.value = !isShow.value }
                         </div>
                     </main>
                     <footer class="modal__footer flex justify-center">
-                        <Link as="button" :href="route('pokedex.index', { 'value': value, 'type': checks })" class="modal__btn modal__btn-search w-60 h-20">検索する</Link>
+                        <Link as="button" :href="route('pokedex.index', { 'search': value, 'type': checks })" class="modal__btn modal__btn-search w-60 h-20">検索する</Link>
                     </footer>
                 </form>
             </div>

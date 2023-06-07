@@ -13,222 +13,47 @@ class PokemonController extends Controller
      */
     public function index(Request $request)
     {
-        if ($request->number == 'desc') {
-            $data = Pokemon::select(
-                'p_id',
-                'jp_name',
-                'en_name',
-                'type1',
-                'type2',
-                'ability1',
-                'ability2',
-                'hidden_ability',
-                'hp',
-                'attack',
-                'defense',
-                'special_attack',
-                'special_defense',
-                'speed',
-                'total_stats',
-                'front_default',
-                'back_default',
-                'dream_world_front_default',
-                'home_front_default',
-                'official_artwork_front_default',
-                'height',
-                'weight'
-            )
-            ->orderBy("id", "desc")
-            ->get();
-        } elseif($request->name == 'asc') {
-            $data = Pokemon::select(
-                'p_id',
-                'jp_name',
-                'en_name',
-                'type1',
-                'type2',
-                'ability1',
-                'ability2',
-                'hidden_ability',
-                'hp',
-                'attack',
-                'defense',
-                'special_attack',
-                'special_defense',
-                'speed',
-                'total_stats',
-                'front_default',
-                'back_default',
-                'dream_world_front_default',
-                'home_front_default',
-                'official_artwork_front_default',
-                'height',
-                'weight'
-            )
-            ->orderBy("jp_name", "asc")
-            ->get();
-        } elseif($request->name == 'desc') {
-            $data = Pokemon::select(
-                'p_id',
-                'jp_name',
-                'en_name',
-                'type1',
-                'type2',
-                'ability1',
-                'ability2',
-                'hidden_ability',
-                'hp',
-                'attack',
-                'defense',
-                'special_attack',
-                'special_defense',
-                'speed',
-                'total_stats',
-                'front_default',
-                'back_default',
-                'dream_world_front_default',
-                'home_front_default',
-                'official_artwork_front_default',
-                'height',
-                'weight'
-            )
-            ->orderBy("jp_name", "desc")
-            ->get();
-        } elseif($request->height == 'asc') {
-            $data = Pokemon::select(
-                'p_id',
-                'jp_name',
-                'en_name',
-                'type1',
-                'type2',
-                'ability1',
-                'ability2',
-                'hidden_ability',
-                'hp',
-                'attack',
-                'defense',
-                'special_attack',
-                'special_defense',
-                'speed',
-                'total_stats',
-                'front_default',
-                'back_default',
-                'dream_world_front_default',
-                'home_front_default',
-                'official_artwork_front_default',
-                'height',
-                'weight'
-            )
-            ->orderBy("height", "asc")
-            ->get();
-        } elseif($request->height == 'desc') {
-            $data = Pokemon::select(
-                'p_id',
-                'jp_name',
-                'en_name',
-                'type1',
-                'type2',
-                'ability1',
-                'ability2',
-                'hidden_ability',
-                'hp',
-                'attack',
-                'defense',
-                'special_attack',
-                'special_defense',
-                'speed',
-                'total_stats',
-                'front_default',
-                'back_default',
-                'dream_world_front_default',
-                'home_front_default',
-                'official_artwork_front_default',
-                'height',
-                'weight'
-            )
-            ->orderBy("height", "desc")
-            ->get();
-        } elseif($request->weight == 'asc') {
-            $data = Pokemon::select(
-                'p_id',
-                'jp_name',
-                'en_name',
-                'type1',
-                'type2',
-                'ability1',
-                'ability2',
-                'hidden_ability',
-                'hp',
-                'attack',
-                'defense',
-                'special_attack',
-                'special_defense',
-                'speed',
-                'total_stats',
-                'front_default',
-                'back_default',
-                'dream_world_front_default',
-                'home_front_default',
-                'official_artwork_front_default',
-                'height',
-                'weight'
-            )
-            ->orderBy("weight", "asc")
-            ->get();
-        } elseif($request->weight == 'desc') {
-            $data = Pokemon::select(
-                'p_id',
-                'jp_name',
-                'en_name',
-                'type1',
-                'type2',
-                'ability1',
-                'ability2',
-                'hidden_ability',
-                'hp',
-                'attack',
-                'defense',
-                'special_attack',
-                'special_defense',
-                'speed',
-                'total_stats',
-                'front_default',
-                'back_default',
-                'dream_world_front_default',
-                'home_front_default',
-                'official_artwork_front_default',
-                'height',
-                'weight'
-            )
-            ->orderBy("weight", "desc")
-            ->get();
-        } else {
-            $data = Pokemon::select(
-                'p_id',
-                'jp_name',
-                'en_name',
-                'type1',
-                'type2',
-                'ability1',
-                'ability2',
-                'hidden_ability',
-                'hp',
-                'attack',
-                'defense',
-                'special_attack',
-                'special_defense',
-                'speed',
-                'total_stats',
-                'front_default',
-                'back_default',
-                'dream_world_front_default',
-                'home_front_default',
-                'official_artwork_front_default',
-                'height',
-                'weight'
-            )->get();
+        // デバッグコード
+        // dd($request->type);
+
+        $query = Pokemon::query();
+        $requestTypeList = [];
+
+        //キーワード検索
+        if ($request->search) {
+            $keyword = $request->search;
+            $query->where('jp_name','like','%'.$keyword.'%');
+            // dd($request->search);
         }
 
+        //タイプ一致検索
+        if ($request->type) {
+            foreach ($request->type as $typer) {
+                array_push($requestTypeList, $typer);
+            }
+            // dd($typewild);
+        }
+
+        //表示順並び替え
+        if ($request->number == 'desc') {
+            $data = $query->orderBy("id", "desc")->get();
+        } elseif($request->number == 'asc') {
+            $data = $query->orderBy("id", "asc")->get();
+        } elseif($request->name == 'desc') {
+            $data = $query->orderBy("jp_name", "desc")->get();
+        } elseif($request->name == 'asc') {
+            $data = $query->orderBy("jp_name", "asc")->get();
+        } elseif($request->height == 'asc') {
+            $data = $query->orderBy("height", "asc")->get();
+        } elseif($request->height == 'desc') {
+            $data = $query->orderBy("height", "desc")->get();
+        } elseif($request->weight == 'asc') {
+            $data = $query->orderBy("weight", "asc")->get();
+        } elseif($request->weight == 'desc') {
+            $data = $query->orderBy("weight", "desc")->get();
+        } else {
+            $data = $query->get();
+        }
 
         return Inertia::render('Pokedex/Index', [
             'pokeinfo' => $data,
