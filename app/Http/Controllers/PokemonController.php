@@ -32,6 +32,22 @@ class PokemonController extends Controller
                 array_push($requestTypeList, $typer);
             }
             // dd($typewild);
+
+            if ( count($requestTypeList) == 1) {                     //1タイプのみの場合
+                $query->where('type1', $requestTypeList[0]);
+                $query->orWhere('type2', $requestTypeList[0]);
+            } elseif (count($requestTypeList) == 2) {                //2タイプの場合
+                $query->where([
+                    ['type1', '=', $requestTypeList[0]],
+                    ['type2', '=', $requestTypeList[1]],
+                ]);
+                $query->orWhere([
+                    ['type1', '=', $requestTypeList[1]],
+                    ['type2', '=', $requestTypeList[0]],
+                ]);
+            } elseif (count($requestTypeList) >= 3) {               //３タイプ以上の場合　存在しないので適当な文字列と比較
+                $query->where('type1', 'abcde');
+            }
         }
 
         //表示順並び替え

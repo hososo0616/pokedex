@@ -43,8 +43,8 @@ const toggleChange = () => { isShow.value = !isShow.value }
                                         <label class="radio-inline__label type3" for="water"> みず </label>
                                     </div>
                                     <div>
-                                        <input id="electronic" class="radio-inline__input" type="checkbox" name="accessible-radio" value="electronic" v-model="checks" />
-                                        <label class="radio-inline__label type4" for="electronic"> でんき </label>
+                                        <input id="electric" class="radio-inline__input" type="checkbox" name="accessible-radio" value="electric" v-model="checks" />
+                                        <label class="radio-inline__label type4" for="electric"> でんき </label>
                                     </div>
                                     <div>
                                         <input id="grass" class="radio-inline__input" type="checkbox" name="accessible-radio" value="grass" v-model="checks" />
@@ -59,24 +59,24 @@ const toggleChange = () => { isShow.value = !isShow.value }
                                         <label class="radio-inline__label type7" for="fight"> かくとう </label>
                                     </div>
                                     <div>
-                                        <input id="asid" class="radio-inline__input" type="checkbox" name="accessible-radio" value="asid" v-model="checks" />
-                                        <label class="radio-inline__label type8" for="asid"> どく </label>
+                                        <input id="poison" class="radio-inline__input" type="checkbox" name="accessible-radio" value="poison" v-model="checks" />
+                                        <label class="radio-inline__label type8" for="poison"> どく </label>
                                     </div>
                                     <div>
                                         <input id="ground" class="radio-inline__input" type="checkbox" name="accessible-radio" value="ground" v-model="checks" />
                                         <label class="radio-inline__label type9" for="ground"> じめん </label>
                                     </div>
                                     <div>
-                                        <input id="fly" class="radio-inline__input" type="checkbox" name="accessible-radio" value="fly" v-model="checks" />
-                                        <label class="radio-inline__label type10" for="fly"> ひこう </label>
+                                        <input id="flying" class="radio-inline__input" type="checkbox" name="accessible-radio" value="flying" v-model="checks" />
+                                        <label class="radio-inline__label type10" for="flying"> ひこう </label>
                                     </div>
                                     <div>
                                         <input id="esper" class="radio-inline__input" type="checkbox" name="accessible-radio" value="esper" v-model="checks" />
                                         <label class="radio-inline__label type11" for="esper"> エスパー </label>
                                     </div>
                                     <div>
-                                        <input id="beetle" class="radio-inline__input" type="checkbox" name="accessible-radio" value="beetle" v-model="checks" />
-                                        <label class="radio-inline__label type12" for="beetle"> むし </label>
+                                        <input id="bug" class="radio-inline__input" type="checkbox" name="accessible-radio" value="bug" v-model="checks" />
+                                        <label class="radio-inline__label type12" for="bug"> むし </label>
                                     </div>
                                     <div>
                                         <input id="rock" class="radio-inline__input" type="checkbox" name="accessible-radio" value="rock" v-model="checks" />
