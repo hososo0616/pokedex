@@ -1,41 +1,79 @@
 <script setup>
 import { Link } from "@inertiajs/vue3";
+import { onMounted, ref } from "vue";
+
 defineProps({
     pokemon: Array,
 })
+
+const active = ref(true);
+
+const changeImage = () => {
+    active.value = !active.value;
+}
+
 </script>
 <template>
-    <section class="text-gray-600 body-font overflow-hidden">
+    <section class="text-gray-600 body-font overflow-hidden bg-gray-300">
         <div class="container px-5 py-24 mx-auto">
             <div class="lg:w-4/5 mx-auto flex flex-wrap">
-                <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" :src="pokemon['front_default']">
-                <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-                    <h2 class="text-sm title-font text-gray-500 tracking-widest">ID:{{ pokemon['p_id'] }}</h2>
-                    <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">{{ pokemon['jp_name'] }}</h1>
+                <div class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded">
+                    <img v-if="active == true" alt="ecommerce" class="w-full lg:h-auto h-64 object-cover object-center rounded" :src="pokemon['front_default']">
+                    <img v-if="active == false" alt="ecommerce" class="w-full lg:h-auto h-64 object-cover object-center rounded" :src="pokemon['back_default']">
+                </div>
+                <div class="lg:w-2/5 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+                    <h2 class="text-sm title-font text-gray-500 tracking-widest md:mb-2">ID:{{ pokemon['p_id'] }}</h2>
+                    <h1 class="text-gray-900 text-4xl title-font font-medium mb-4">{{ pokemon['jp_name'] }}</h1>
                     <div class="flex mb-4">
                         <span class="flex items-center">
+                            <span>タイプ：</span>
                             <span class="text-gray-600 ml-3">{{ pokemon['type1'] }}</span>
                             <span v-if="(pokemon['type2'])" class="text-gray-600 ml-3">{{ pokemon['type2'] }}</span>
                         </span>
+                    </div>
+                    <div class="flex mb-4">
                         <span class="flex items-center">
+                            <span>とくせい：</span>
                             <span class="text-gray-600 ml-3">{{ pokemon['ability1'] }}</span>
                             <span v-if="(pokemon['ability2'])" class="text-gray-600 ml-3">{{ pokemon['ability2'] }}</span>
                             <span v-if="(pokemon['hidden_ability'])" class="text-gray-600 ml-3">{{ pokemon['hidden_ability'] }}</span>
                         </span>
                     </div>
-                    <p class="leading-relaxed">H:{{ pokemon['hp'] }}</p>
-                    <p class="leading-relaxed">A:{{ pokemon['attack'] }}</p>
-                    <p class="leading-relaxed">B:{{ pokemon['defense'] }}</p>
-                    <p class="leading-relaxed">C:{{ pokemon['special_attack'] }}</p>
-                    <p class="leading-relaxed">D:{{ pokemon['special_defense'] }}</p>
-                    <p class="leading-relaxed">S:{{ pokemon['speed'] }}</p>
-                    <p class="leading-relaxed">total:{{ pokemon['total_stats'] }}</p>
+                    <div class="w-4/5">
+                        <div class="flex justify-between">
+                            <p class="leading-relaxed">Hit Points:</p>
+                            <p>{{ pokemon['hp'] }}</p>
+                        </div>
+                        <div class="flex justify-between">
+                            <p class="leading-relaxed">Attack:</p>
+                            <p>{{ pokemon['attack'] }}</p>
+                        </div>
+                        <div class="flex justify-between">
+                            <p class="leading-relaxed">Defense:</p>
+                            <p>{{ pokemon['defense'] }}</p>
+                        </div>
+                        <div class="flex justify-between">
+                            <p class="leading-relaxed">Special Attack:</p>
+                            <p>{{ pokemon['special_attack'] }}</p>
+                        </div>
+                        <div class="flex justify-between">
+                            <p class="leading-relaxed">Special Defense:</p>
+                            <p>{{ pokemon['special_defense'] }}</p>
+                        </div>
+                        <div class="flex justify-between">
+                            <p class="leading-relaxed">Speed:</p>
+                            <p>{{ pokemon['speed'] }}</p>
+                        </div>
+                        <div class="flex justify-between">
+                            <p class="leading-relaxed">total:</p>
+                            <p class="text-xl">{{ pokemon['total_stats'] }}</p>
+                        </div>
+                    </div>
                     <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5">
                         <div class="flex">
-                            <span class="mr-3">Color</span>
-                            <button class="border-2 border-gray-300 rounded-full w-6 h-6 focus:outline-none"></button>
-                            <button class="border-2 border-gray-300 ml-1 bg-gray-700 rounded-full w-6 h-6 focus:outline-none"></button>
-                            <button class="border-2 border-gray-300 ml-1 bg-indigo-500 rounded-full w-6 h-6 focus:outline-none"></button>
+                            <span class="mr-3">向き変更ボタン</span>
+                            <button type="button" class="border-2 border-gray-300 ml-1 bg-blue-700 rounded-full w-6 h-6 focus:outline-none" @click="changeImage"></button>
+                            <!-- <button class="border-2 border-gray-300 ml-1 bg-indigo-500 rounded-full w-6 h-6 focus:outline-none"></button> -->
                         </div>
                         <div class="flex ml-6 items-center">
                             <span class="mr-3">Size</span>
