@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted } from "vue";
+import { onMounted, ref } from "vue";
 import { Link } from "@inertiajs/vue3";
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head } from '@inertiajs/vue3';
@@ -10,6 +10,15 @@ defineProps({
     pokeinfo: Array,
 })
 
+let url = new URL(window.location.href);// URLを取得
+let parameter = url.searchParams;// URLSearchParamsオブジェクトを取得
+
+const params = ref(parameter);
+// const params = parameter;
+
+console.log(parameter);
+console.log(params);
+
 </script>
 
 <template>
@@ -17,7 +26,20 @@ defineProps({
     <AuthenticatedLayout>
         <template #header>
             <div class="flex justify-between">
-                <h2 class="font-semibold text-2xl text-gray-800 leading-tight">ポケモン図鑑</h2>
+                <h1 class="font-semibold text-3xl text-gray-800 leading-tight">ポケモン図鑑</h1>
+                <div v-if="params" class="border-2 border-indigo-600 text-start md:w-1/2 md:p-5">
+                    <div class="flex">
+                        <h2 class="text-xl font-bold">検索条件</h2>
+                        <ul class="flex">
+                            <li class="md:ml-4" v-for="param in params" :key="param">{{ param[1] }}.</li>
+                        </ul>
+                        <!-- <p class="ml-8">{{ params }}</p> -->
+                    </div>
+                    <div class="flex  md:mt-4">
+                        <h2 class="text-xl font-bold">表示順</h2>
+                        <p class="ml-8">じょうけん</p>
+                    </div>
+                </div>
                 <div class="flex">
                     <div>
                         <MicroModal />
@@ -45,9 +67,9 @@ defineProps({
                                     </Link>
                                     <div class="mt-2 sm:mt-4">
                                         <h3 class="text-sm font-medium text-gray-800 sm:text-base lg:text-lg dark:text-gray-200">
-                                                                                                            {{ poke['p_id'] }}
-                                                                                                            {{ poke['jp_name'] }}
-                                                                                                            </h3>
+                                                                                                                {{ poke['p_id'] }}
+                                                                                                                {{ poke['jp_name'] }}
+                                                                                                                </h3>
                                     </div>
                                 </div>
                             </div>
