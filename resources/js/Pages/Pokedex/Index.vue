@@ -16,7 +16,6 @@ let parameter = url.searchParams;// URLSearchParamsオブジェクトを取得
 const params = ref(parameter);
 // const params = parameter;
 
-console.log(parameter);
 console.log(params);
 
 </script>
@@ -26,35 +25,38 @@ console.log(params);
     <AuthenticatedLayout>
         <template #header>
             <div class="flex justify-between">
-                <h1 class="font-semibold text-3xl text-gray-800 leading-tight">ポケモン図鑑</h1>
-                <div v-if="params" class="border-2 border-indigo-600 text-start md:w-1/2 md:p-5">
+                <h1 class="font-semibold text-3xl text-zinc-200 leading-tight pt-4">ポケモン図鑑</h1>
+                <!-- 表示順と検索のパラメータ両保持できないため保留 -->
+                <!-- <div v-if="params" class="border-2 border-indigo-600 text-start md:w-1/2 md:p-5 mt-4">
                     <div class="flex">
-                        <h2 class="text-xl font-bold">検索条件</h2>
+                        <h2 class="text-xl font-bold text-zinc-200">検索条件</h2>
                         <ul class="flex">
                             <li class="md:ml-4" v-for="param in params" :key="param">{{ param[1] }}.</li>
                         </ul>
-                        <!-- <p class="ml-8">{{ params }}</p> -->
+                        <p class="ml-8">{{ params }}</p>
                     </div>
-                    <div class="flex  md:mt-4">
+                    <div class="flex md:mt-4">
                         <h2 class="text-xl font-bold">表示順</h2>
-                        <p class="ml-8">じょうけん</p>
+                        <ul class="flex">
+                            <li class="md:ml-4" v-for="param in params" :key="param">{{ param[1] }}.</li>
+                        </ul>
                     </div>
-                </div>
+                </div> -->
                 <div class="flex">
                     <div>
                         <MicroModal />
-                        <p class="text-center text-sm pr-8">表示順</p>
+                        <p class="text-center text-sm pr-8 text-zinc-200">表示順</p>
                     </div>
                     <div>
                         <SearchModal />
-                        <p class="text-center text-sm">検索</p>
+                        <p class="text-center text-sm text-zinc-200">検索</p>
                     </div>
                 </div>
             </div>
         </template>
-        <div class="py-4 bg-blue-100">
+        <div class="py-4 bg-sky-950">
             <div class="mx-auto sm:px-6 lg:px-8">
-                <div class=" overflow-hidden shadow-sm sm:rounded-lg  bg-blue-100">
+                <div class=" overflow-hidden shadow-sm sm:rounded-lg  bg-sky-950">
                     <div class="p-6 text-gray-900">
                         <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-12 mx-auto">
                             <!-- <div class="max-w-2xl mx-auto text-center mb-10 lg:mb-14">

@@ -15,13 +15,13 @@ defineProps({
 <template>
     <Head title="どうぐ一覧" />
     <AuthenticatedLayout>
-        <div class="py-4 bg-blue-200">
+        <div class="py-4">
             <div class="mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg  bg-blue-200">
+                <div class=" overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 text-gray-900">
                         <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
                             <div class="max-w-2xl mx-auto text-center mb-10 lg:mb-14">
-                                <h2 class="text-2xl font-bold md:text-4xl md:leading-tight dark:text-white">どうぐ一覧</h2>
+                                <h2 class="text-2xl font-bold md:text-4xl md:leading-tight dark:text-white text-zinc-200">どうぐ一覧</h2>
                             </div>
                             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-10 gap-8 md:gap-4">
                                 <div v-for="item in iteminfo" class="text-center  bg-white rounded-xl">
