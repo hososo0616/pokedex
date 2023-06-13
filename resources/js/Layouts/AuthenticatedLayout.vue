@@ -13,7 +13,7 @@ const showingNavigationDropdown = ref(false);
 <template>
     <div>
         <div class="min-h-screen bg-sky-950 shadow">
-            <nav class="bg-sky-100">
+            <nav class="bg-sky-950">
                 <!-- Primary Navigation Menu -->
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="flex justify-between h-16">
@@ -22,20 +22,20 @@ const showingNavigationDropdown = ref(false);
                             <div class="shrink-0 flex items-center">
                                 <Link :href="route('dashboard')">
                                     <ApplicationLogo
-                                        class="block h-9 w-auto fill-current text-gray-800"
+                                        class="block h-9 w-auto fill-current text-white"
                                     />
                                 </Link>
                             </div>
 
                             <!-- Navigation Links -->
-                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
+                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex ">
+                                <NavLink :href="route('dashboard')" :active="route().current('dashboard')" class="text-white hover:text-red-400">
                                     Dashboard
                                 </NavLink>
-                                <NavLink :href="route('pokedex.index')" :active="route().current('pokedex.index')">
+                                <NavLink :href="route('pokedex.index')" :active="route().current('pokedex.index')" class="text-white hover:text-red-400">
                                     ポケモン図鑑
                                 </NavLink>
-                                <NavLink :href="route('pokeitem.index')" :active="route().current('pokeitem.index')">
+                                <NavLink :href="route('pokeitem.index')" :active="route().current('pokeitem.index')" class="text-white hover:text-red-400">
                                     ポケモンのどうぐ
                                 </NavLink>
                             </div>
@@ -49,7 +49,7 @@ const showingNavigationDropdown = ref(false);
                                         <span class="inline-flex rounded-md">
                                             <button
                                                 type="button"
-                                                class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
+                                                class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-sky-950 hover:text-red-400 focus:outline-none transition ease-in-out duration-150"
                                             >
                                                 {{ $page.props.auth.user.name }}
 
@@ -70,8 +70,8 @@ const showingNavigationDropdown = ref(false);
                                     </template>
 
                                     <template #content>
-                                        <DropdownLink :href="route('profile.edit')"> Profile </DropdownLink>
-                                        <DropdownLink :href="route('logout')" method="post" as="button">
+                                        <DropdownLink :href="route('profile.edit')" class="hover:text-red-400"> Profile </DropdownLink>
+                                        <DropdownLink :href="route('logout')" class="hover:text-red-400" method="post" as="button">
                                             Log Out
                                         </DropdownLink>
                                     </template>

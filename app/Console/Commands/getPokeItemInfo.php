@@ -68,6 +68,7 @@ class getPokeItemInfo extends Command
         $item_info['cost'] = $data['cost'];
         $item_info['description'] = $data['flavor_text_entries'][9]['text'];
         $item_info['front_default'] = $data['sprites']['default'];
+        $item_info['category'] = $data['category']['name'];
 
         return $item_info;
     }

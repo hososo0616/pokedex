@@ -16,12 +16,15 @@ class PokemonController extends Controller
         // デバッグコード
         // dd($request->type);
 
-        $query = Pokemon::query();
-        $requestTypeList = [];
+        $query = Pokemon::query(); //クエリ生成
+        $requestTypeList = [];     //タイプ用リスト
+        $requestSortList = [];
+        $sort = '0';
 
         //キーワード検索
         if ($request->search) {
             $keyword = $request->search;
+            $requestSortList['search'] = $keyword;
             $query->where('jp_name','like','%'.$keyword.'%');
             // dd($request->search);
         }
@@ -48,31 +51,47 @@ class PokemonController extends Controller
             } elseif (count($requestTypeList) >= 3) {               //３タイプ以上の場合　存在しないので適当な文字列と比較
                 $query->where('type1', 'abcde');
             }
+            $requestSortList['type'] = $request->type;
         }
 
         //表示順並び替え
         if ($request->number == 'desc') {
             $data = $query->orderBy("id", "desc")->get();
+            $requestSortList['sort'] = '番号順 最後→最初';
         } elseif($request->number == 'asc') {
             $data = $query->orderBy("id", "asc")->get();
+            $requestSortList['sort'] = '番号順 最初→最後';
         } elseif($request->name == 'desc') {
             $data = $query->orderBy("jp_name", "desc")->get();
+            $requestSortList['sort'] = '名前順 あ→ん';
         } elseif($request->name == 'asc') {
             $data = $query->orderBy("jp_name", "asc")->get();
+            $requestSortList['sort'] = '名前順 ん→あ';
         } elseif($request->height == 'asc') {
             $data = $query->orderBy("height", "asc")->get();
+            $requestSortList['sort'] = '高さ順 低い→高い';
         } elseif($request->height == 'desc') {
             $data = $query->orderBy("height", "desc")->get();
+            $requestSortList['sort'] = '高さ順 高い→低い';
         } elseif($request->weight == 'asc') {
             $data = $query->orderBy("weight", "asc")->get();
+            $requestSortList['sort'] = '重さ順 重い→軽い';
         } elseif($request->weight == 'desc') {
             $data = $query->orderBy("weight", "desc")->get();
+            $requestSortList['sort'] = '重さ順 重い→軽い';
         } else {
-            $data = $query->get();
+            $data = $query->orderBy("id", "asc")->get();
+            if (!$request->type) {
+                $sort = '1';
+            }
         }
+
+        // dd($requestSortList);
 
         return Inertia::render('Pokedex/Index', [
             'pokeinfo' => $data,
+            'sort' => $sort,
+            'requestSortList' => $requestSortList,
         ]);
     }
 
@@ -101,6 +120,8 @@ class PokemonController extends Controller
 
         // 確認用
         // dd($pokemon);
+
+        // dd($_SERVER['HTTP_REFERER']);
 
         return Inertia::render('Pokedex/Show', [
             'pokemon' => $pokemon,

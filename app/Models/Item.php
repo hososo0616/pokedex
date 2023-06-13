@@ -18,6 +18,7 @@ class Item extends Model
         'cost',
         'description',
         'front_default',
+        'category',
     ];
 
     static function createItem($item_info)
@@ -30,6 +31,7 @@ class Item extends Model
                 'cost' => $item_info['cost'],
                 'description' => $item_info['description'],
                 'front_default' => $item_info['front_default'],
+                'category' => $item_info['category'],
             ]);
         }
         return true;
