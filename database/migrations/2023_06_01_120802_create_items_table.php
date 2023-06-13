@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('cost')->nullable();
             $table->string('description')->nullable();
             $table->string('front_default')->nullable();
+            $table->string('category')->nullable();
             $table->timestamps();
         });
     }

@@ -8,15 +8,9 @@ import SearchModal from '@/Components/SearchModal.vue';
 
 defineProps({
     pokeinfo: Array,
+    requestSortList: Array,
+    sort: String,
 })
-
-let url = new URL(window.location.href);// URLを取得
-let parameter = url.searchParams;// URLSearchParamsオブジェクトを取得
-
-const params = ref(parameter);
-// const params = parameter;
-
-console.log(params);
 
 </script>
 
@@ -27,21 +21,28 @@ console.log(params);
             <div class="flex justify-between">
                 <h1 class="font-semibold text-3xl text-zinc-200 leading-tight pt-4">ポケモン図鑑</h1>
                 <!-- 表示順と検索のパラメータ両保持できないため保留 -->
-                <!-- <div v-if="params" class="border-2 border-indigo-600 text-start md:w-1/2 md:p-5 mt-4">
+                <div v-if="sort == 0" class="border-2 border-indigo-600 text-start md:w-1/2 md:p-5 mt-4">
                     <div class="flex">
-                        <h2 class="text-xl font-bold text-zinc-200">検索条件</h2>
-                        <ul class="flex">
-                            <li class="md:ml-4" v-for="param in params" :key="param">{{ param[1] }}.</li>
-                        </ul>
-                        <p class="ml-8">{{ params }}</p>
+                        <h2 class="text-xl font-bold text-zinc-200 mr-8">検索条件</h2>
+                        <div>
+                            <div v-if="requestSortList['search']" class="flex text-zinc-200">
+                                <p>検索ワード：</p>
+                                <p>{{ requestSortList['search'] }}</p>
+                            </div>
+                            <div v-if="requestSortList['type']" class="flex text-zinc-200">
+                                <p>タイプ：</p>
+                                <ul class="flex text-zinc-200">
+                                    <li class="md:ml-4" v-for="param in requestSortList['type']" :key="param">{{ param }}.</li>
+                                </ul>
+                            </div>
+
+                        </div>
                     </div>
-                    <div class="flex md:mt-4">
-                        <h2 class="text-xl font-bold">表示順</h2>
-                        <ul class="flex">
-                            <li class="md:ml-4" v-for="param in params" :key="param">{{ param[1] }}.</li>
-                        </ul>
+                    <div class="flex md:mt-4 text-zinc-200">
+                        <h2 class="text-xl font-bold text-zinc-200 mr-8">表示順</h2>
+                        <p v-if="requestSortList['sort']" class="font-bold">{{ requestSortList['sort'] }}</p>
                     </div>
-                </div> -->
+                </div>
                 <div class="flex">
                     <div>
                         <MicroModal />
