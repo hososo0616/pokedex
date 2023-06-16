@@ -63,10 +63,10 @@ class PokemonController extends Controller
             $requestSortList['sort'] = '番号順 最初→最後';
         } elseif($request->name == 'desc') {
             $data = $query->orderBy("jp_name", "desc")->get();
-            $requestSortList['sort'] = '名前順 あ→ん';
+            $requestSortList['sort'] = '名前順 ん→あ';
         } elseif($request->name == 'asc') {
             $data = $query->orderBy("jp_name", "asc")->get();
-            $requestSortList['sort'] = '名前順 ん→あ';
+            $requestSortList['sort'] = '名前順 あ→ん';
         } elseif($request->height == 'asc') {
             $data = $query->orderBy("height", "asc")->get();
             $requestSortList['sort'] = '高さ順 低い→高い';
