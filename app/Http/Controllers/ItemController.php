@@ -13,20 +13,19 @@ class ItemController extends Controller
      */
     public function index(Request $request)
     {
-        // $data = Item::select(
-        //     'item_id',
-        //     'jp_name',
-        //     'en_name',
-        //     'cost',
-        //     'description',
-        //     'front_default',
-        //     'category',
-        // )->get();
+        // $url = 'https://pokeapi.co/api/v2/item/114';
+        //         $curl = curl_init($url);
+        //         curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'GET');
+        //         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+        //         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        //         $r = curl_exec($curl);
+        //         $data = json_decode($r, true);
 
-        // dd($data)
+        //         dd($data['flavor_text_entries'][0]['text']
+        //     );
 
         $query = Item::query();
-        $requestTypeList = [];
+        $sort = '0'; //表示順表示管理変数
 
         //キーワード検索
         if ($request->search) {
@@ -35,34 +34,55 @@ class ItemController extends Controller
             // dd($request->search);
         }
 
-        //タイプ一致検索
-        // if ($request->type) {
-        //     foreach ($request->type as $typer) {
-        //         array_push($requestTypeList, $typer);
-        //     }
-        //     // dd($typewild);
+        //カテゴリ検索
+        if ($request->category) {
+            if ($request->category == 'tool') {
+                $query->where('category', '=', 'evolution')
+                ->orwhere('category', '=', 'spelunking');
+            }
+            if ($request->category == 'ball') {
+                $query->where('category', '=', 'standard-balls')
+                    ->orwhere('category', '=', 'special-balls');
+            }
+            if ($request->category == 'healing') {
+                $query->where('category', '=', 'status-cures')
+                    ->orwhere('category', '=', 'healing')
+                    ->orwhere('category', '=', 'pp-recovery');
+            }
+            if ($request->category == 'vitamins') {
+                $query->where('category', '=', 'vitamins');
+            }
+            if ($request->category == 'stat-boosts') {
+                $query->where('category', '=', 'stat-boosts');
+            }
+        }
 
-        //     if ( count($requestTypeList) == 1) {                     //1タイプのみの場合
-        //         $query->where('type1', $requestTypeList[0]);
-        //         $query->orWhere('type2', $requestTypeList[0]);
-        //     } elseif (count($requestTypeList) == 2) {                //2タイプの場合
-        //         $query->where([
-        //             ['type1', '=', $requestTypeList[0]],
-        //             ['type2', '=', $requestTypeList[1]],
-        //         ]);
-        //         $query->orWhere([
-        //             ['type1', '=', $requestTypeList[1]],
-        //             ['type2', '=', $requestTypeList[0]],
-        //         ]);
-        //     } elseif (count($requestTypeList) >= 3) {               //３タイプ以上の場合　存在しないので適当な文字列と比較
-        //         $query->where('type1', 'abcde');
-        //     }
-        // }
+        //表示順並び替え
+        //表示順並び替え
+        if ($request->sort == 'name-desc') {
+            $data = $query->orderBy("jp_name", "desc")->get();
+            $requestSortList['sort'] = '名前順 最後→最初';
+        } elseif($request->sort == 'name-asc') {
+            $data = $query->orderBy("jp_name", "asc")->get();
+            $requestSortList['sort'] = '名前順 最初→最後';
+        } elseif($request->price == 'price-desc') {
+            $data = $query->orderBy("cost", "desc")->get();
+            $requestSortList['sort'] = '価格順 高い順';
+        } elseif($request->price == 'price-asc') {
+            $data = $query->orderBy("cost", "asc")->get();
+            $requestSortList['sort'] = '価格順 低い順';
+        } else {
+            $data = $query->orderBy("id", "asc")->get();
+            if (!$request->type) {
+                $sort = '1';
+            }
+        }
 
         $data = $query->get();
 
         return Inertia::render('PokeItem/Index', [
             'iteminfo' => $data,
+            'sort' => $sort,
         ]);
     }
 

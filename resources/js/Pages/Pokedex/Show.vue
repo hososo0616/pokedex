@@ -14,8 +14,8 @@ const changeImage = () => {
 
 </script>
 <template>
-    <section class="text-zinc-200 body-font overflow-hidden bg-sky-950 shadow">
-        <div class="container px-5 py-24 mx-auto">
+    <section class="text-zinc-200 body-font overflow-hidden bg-sky-950 shadow h-screen">
+        <div class="container px-5 py-24 mx-auto ">
             <div class="lg:w-4/5 mx-auto flex flex-wrap">
                 <div class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded">
                     <img v-if="active == true" alt="ecommerce" class="w-full lg:h-auto h-64 object-cover object-center rounded" :src="pokemon['front_default']">

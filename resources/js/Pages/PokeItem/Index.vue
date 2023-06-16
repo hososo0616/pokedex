@@ -11,6 +11,7 @@ onMounted(() => {
 
 defineProps({
     iteminfo: Array,
+    sort: String,
 })
 
 </script>

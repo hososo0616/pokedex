@@ -3,6 +3,7 @@ import '../css/app.css';
 import './micromodal';
 import '../css/micromodal.css';
 import '../css/searchModal.css';
+import '../css/itemSearchModal.css';
 
 
 import { createApp, h } from 'vue';
