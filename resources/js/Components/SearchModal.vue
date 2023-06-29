@@ -26,7 +26,6 @@ const toggleChange = () => { isShow.value = !isShow.value }
                                     <input type="search" class="md:w-full" placeholder="名前で探す" name="search" v-model="value">
                                 </div>
                             </div>
-                            <p>{{ value }}</p>
                             <div class="col-span-2">
                                 <div class="md:w-full mb-4"> タイプ </div>
                                 <fieldset class="grid sm: grid-cols-1 md:grid-cols-6 gap-x-2 gap-y-5">
@@ -104,7 +103,6 @@ const toggleChange = () => { isShow.value = !isShow.value }
                                     </div>
                                 </fieldset>
                             </div>
-                            <p>{{ checks }}</p>
                             <!-- 特性の一覧が取得できていないので保留 -->
                             <!-- <div class="col-span-2">
                             <div class="md:w-full"> とくせい </div>

@@ -39,7 +39,6 @@ const toggleChange = () => { isShow.value = !isShow.value }
                                     <option value="stat-boosts">せんとうよう</option>
                                 </select>
                             </div>
-                            {{ category }}
                             <div class="itemsearch-wrap col-span-2">
                                 <div class="md:w-full mb-4"> 条件指定 </div>
                                 <div class="item-container">
@@ -74,7 +73,6 @@ const toggleChange = () => { isShow.value = !isShow.value }
                                 </div>
                             </div>
                         </div>
-                        {{ sort }}
                         <!-- <button class="clear-radio-button" name="sex">選択解除</button> -->
                     </main>
                     <footer class="modal__footer flex justify-center">
