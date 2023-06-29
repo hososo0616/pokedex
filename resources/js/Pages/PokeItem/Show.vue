@@ -20,7 +20,7 @@ defineProps({
                     <li>en：{{ item['en_name'] }}</li>
                 </ul>
                 <div class="flex justify-center">
-                    <Link as="button" :href="route('pokeitem.index')" class="flex  text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">戻る</Link>
+                    <Link as="button" href="#" onclick="window.history.back();" class="flex  text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">戻る</Link>
                 </div>
             </div>
         </div>
