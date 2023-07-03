@@ -22,8 +22,8 @@ const changeImage = () => {
                     <img v-if="active == false" alt="ecommerce" class="w-full lg:h-auto h-64 object-cover object-center rounded" :src="pokemon['back_default']">
                 </div>
                 <div class="lg:w-2/5 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-                    <h2 class="text-sm title-font text-gray-500 tracking-widest md:mb-2 text-zinc-200">ID:{{ pokemon['p_id'] }}</h2>
-                    <h1 class="text-gray-900 text-4xl title-font font-medium mb-4 text-zinc-200">{{ pokemon['jp_name'] }}</h1>
+                    <h2 class="text-sm title-font tracking-widest md:mb-2 text-zinc-200">ID:{{ pokemon['p_id'] }}</h2>
+                    <h1 class=" text-4xl title-font font-medium mb-4 text-zinc-200">{{ pokemon['jp_name'] }}</h1>
                     <div class="flex mb-4 text-zinc-200">
                         <span class="flex items-center">
                             <span>タイプ：</span>
