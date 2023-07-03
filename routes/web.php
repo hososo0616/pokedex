@@ -30,9 +30,6 @@ Route::get('/', function () {
 Route::resource('pokedex', PokemonController::class)
 ->middleware(['auth', 'verified']);
 
-Route::resource('pokedex', PokemonController::class)
-->middleware(['auth', 'verified']);
-
 Route::resource('pokeitem', ItemController::class)
 ->middleware(['auth', 'verified']);
 
