@@ -11,16 +11,13 @@ class DashboardController extends Controller
     public function index()
     {
         //ランダムな数値生成
-        // $rand_num = mt_rand(1, 1200);
-        // $pokemon = mt_rand(1, 1200);
+        $rand_num = mt_rand(1, 1010);
 
-        $pokemon = Pokemon::findOrFail(1);
-
+        //対象のポケモン情報を取得
+        $pokemon = Pokemon::findOrFail($rand_num);
 
         return Inertia::render('Dashboard', [
             'pokemon' => $pokemon,
         ]);
-
-        // return Inertia::render('Dashboard');
     }
 }
