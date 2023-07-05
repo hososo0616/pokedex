@@ -30,7 +30,7 @@ const showingNavigationDropdown = ref(false);
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex ">
                                 <NavLink :href="route('dashboard')" :active="route().current('dashboard')" class="text-white hover:text-red-400">
-                                    Dashboard
+                                    ホーム
                                 </NavLink>
                                 <NavLink :href="route('pokedex.index')" :active="route().current('pokedex.index')" class="text-white hover:text-red-400">
                                     ポケモン図鑑
@@ -119,7 +119,7 @@ const showingNavigationDropdown = ref(false);
                 >
                     <div class="pt-2 pb-3 space-y-1">
                         <ResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                            Dashboard
+                            ホーム
                         </ResponsiveNavLink>
                         <ResponsiveNavLink :href="route('pokedex.index')" :active="route().current('pokedex.index')">
                             ポケモン図鑑
