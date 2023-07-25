@@ -38,6 +38,9 @@ const showingNavigationDropdown = ref(false);
                                 <NavLink :href="route('pokeitem.index')" :active="route().current('pokeitem.index')" class="text-white hover:text-red-400">
                                     ポケモンのどうぐ
                                 </NavLink>
+                                <NavLink :href="route('pokeparty.index')" :active="route().current('pokeparty.index')" class="text-white hover:text-red-400">
+                                    ポケモン編成
+                                </NavLink>
                             </div>
                         </div>
 
@@ -126,6 +129,9 @@ const showingNavigationDropdown = ref(false);
                         </ResponsiveNavLink>
                         <ResponsiveNavLink :href="route('pokeitem.index')" :active="route().current('pokeitem.index')">
                             ポケモンのどうぐ
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink :href="route('pokeparty.index')" :active="route().current('pokeparty.index')">
+                            ポケモン編成
                         </ResponsiveNavLink>
                     </div>
 

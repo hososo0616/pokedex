@@ -10,6 +10,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
+        //ローカルではポケモン数が足りないとダッシュボードでエラーになる
         //ランダムな数値生成
         $rand_num = mt_rand(1, 1010);
 
