@@ -7,6 +7,7 @@ use Inertia\Inertia;
 use App\Http\Controllers\PokemonController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PokemonPartyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,9 @@ Route::resource('pokedex', PokemonController::class)
 ->middleware(['auth', 'verified']);
 
 Route::resource('pokeitem', ItemController::class)
+->middleware(['auth', 'verified']);
+
+Route::resource('pokeparty', PokemonPartyController::class)
 ->middleware(['auth', 'verified']);
 
 // Route::get('/dashboard', function () {
