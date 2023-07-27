@@ -28,39 +28,30 @@ defineProps({
                 <div class=" overflow-hidden shadow-sm sm:rounded-lg  bg-sky-950">
                     <div class="p-6 text-gray-900">
                         <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-12 mx-auto">
-                            <div class="flex justify-around">
-                                <div class="w-1/3 h-60 border border-slate-100 text-slate-200">
-                                    <p class="text-2xl">パーティoooooo</p>
-                                    <ul>
-                                        <li>a</li>
-                                        <li>i</li>
-                                        <li>u</li>
-                                        <li>e</li>
-                                        <li>o</li>
-                                        <li>nagatanien</li>
-                                    </ul>
+                            <div class="grid grid-cols-3 gap-4">
+                                <div>
+                                    <a href="#" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
+                                        <p class="font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                                    </a>
                                 </div>
-                                <div class="w-1/3 h-60 border border-slate-100 text-slate-200">
-                                    <p class="text-2xl">パーティoooooo</p>
-                                    <ul>
-                                        <li>a</li>
-                                        <li>i</li>
-                                        <li>u</li>
-                                        <li>e</li>
-                                        <li>o</li>
-                                        <li>nagatanien</li>
-                                    </ul>
+                                <div>
+                                    <a href="#" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
+                                        <p class="font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                                    </a>
                                 </div>
-                                <div class="w-1/3 h-60 border border-slate-100 text-slate-200">
-                                    <p class="text-2xl">パーティoooooo</p>
-                                    <ul>
-                                        <li>a</li>
-                                        <li>i</li>
-                                        <li>u</li>
-                                        <li>e</li>
-                                        <li>o</li>
-                                        <li>nagatanien</li>
-                                    </ul>
+                                <div>
+                                    <a href="#" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
+                                        <p class="font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="#" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
+                                        <p class="font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                                    </a>
                                 </div>
                             </div>
                         </div>
