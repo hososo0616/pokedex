@@ -16,13 +16,13 @@ const toggleChange = () => { isShow.value = !isShow.value }
             <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
                 <form action="" method="GET">
                     <header class="modal__header">
-                        <h2 class="modal__title" id="modal-1-title">条件検索</h2>
+                        <h2 class="modal__title" id="modal-1-title">パーティ登録</h2>
                         <button type="button" class="modal__close" aria-label="Close modal" data-micromodal-close @click="toggleChange"></button>
                     </header>
                     <main class="modal__content" id="modal-1-content">
                         <div class="grid sm: grid-cols-1 md:grid-cols-2 gap-8 ">
                             <div class="col-span-2">
-                                <div class="md:w-full"> フリーワード検索 </div>
+                                <div class="md:w-full"> なまえ検索 </div>
                                 <div>
                                     <input type="search" class="md:w-full" placeholder="名前で探す" name="search" v-model="value">
                                 </div>

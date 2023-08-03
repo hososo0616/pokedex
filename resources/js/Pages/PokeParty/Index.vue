@@ -3,7 +3,6 @@ import { onMounted, ref } from "vue";
 import { Link } from "@inertiajs/vue3";
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head } from '@inertiajs/vue3';
-import MicroModal from '@/Components/MicroModal.vue';
 import PartyAddModal from '@/Components/PartyAddModal.vue';
 
 defineProps({
